@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Getter
 @Setter
 @Component
-@ConfigurationProperties("mqtt")
+@ConfigurationProperties("spring.mqtt")
 public class MqttProperties {
     private String username;
     private String password;
