@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.uberHttpBackend.mapper.DistributionMapper">
+
+
+    <!--获取乘客最近行程订单ID-->
+    <select id="getRecentOrderID" resultType="java.lang.String">
+        select rideOrderFormID
+        from Ride
+        <where>
+            <if test ="passengerUID != null and passengerUID != ''">
+                passengerUID = #{passengerUID}
+            </if>
+        </where>
+        order by creationTime DESC
+        limit 1
+    </select>
+
+</mapper>
